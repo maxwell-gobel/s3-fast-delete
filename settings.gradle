@@ -1,0 +1,9 @@
+rootProject.name = 's3-503-generator-9000'
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            from(files("./versions.toml"))
+        }
+    }
+}

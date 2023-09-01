@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group = 'io.tabular'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation libs.bundles.aws
+
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "example.utility.IWantToCause503s"
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
